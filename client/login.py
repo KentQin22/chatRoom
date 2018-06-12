@@ -6,8 +6,15 @@ describe:本模块为客户端注册登录界面：
     start_login(套接字)
 '''
 
+#导入登录注册界面
+from ui_chat_client import Chat_Window,msg_box_info,Login_Window
+#导入上传文件，下载文件界面
+from file_Down_Up import down_file, up_file
+#导入管理员模块
+from manager import remove_user
+#导入聊天模块
+from chat import recv_msg, send_msg
 
-from ui_chat_client import Login_Window, msg_box_info
 
 
 def _do_register(name, passwd, s):
@@ -16,17 +23,18 @@ def _do_register(name, passwd, s):
     print("正在注册")
     msg ='R {} {}'.format(name ,passwd)
     if msg != '':
-        print(msg)
         print("用户信息输入完毕,取值成功信息为：",msg)
-        if msg != '':
-            print("传过来没有？")
-            print("传过来没有？")
         #发送数据
         s.send(msg.encode())
         # 接收服务器反馈
         data =s.recv(1024).decode()
         # 对反馈进行判断
         if data =='OK':
+            #创建聊天界面对象
+            chatWindow=Chat_Window(down_file, up_file, remove_user, recv_msg, send_msg)
+            #运行聊天窗口
+            chatWindow.run_window()
+
             return 0
         elif data =='EXISTS':
             # print('用户已存在')

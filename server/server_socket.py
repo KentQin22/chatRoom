@@ -56,9 +56,12 @@ class Server:
             elif data[0] == 'A':
                 print('管理员操作')
                 # do_admin(self.connfd, self.db, self.online"在线用户列表")
-            elif data[0] == 'F':
-                print("文件上传下载操作")
-                # do_file(self.connfd,self.db)
+            elif data[0] == 'U':
+                print("文件上传")
+                # up_file(self.connfd,self.db)
+            elif data[0] == 'D':
+                print("文件下载")
+                # down_file(self.connfd,self.db)
             elif data[0] == 'Q':
                 print("退出聊天")
                 # do_quit(self.connfd)
