@@ -7,7 +7,7 @@ describe:本模块为客户端注册登录界面：
 '''
 
 
-from ui_chat_client import Login_Window
+from ui_chat_client import Login_Window, msg_box_info
 
 
 def _do_register(name, passwd, s):
@@ -29,7 +29,8 @@ def _do_register(name, passwd, s):
         if data =='OK':
             return 0
         elif data =='EXISTS':
-            print('用户已存在')
+            # print('用户已存在')
+            msg_box_info("提示","用户已存在！")
             return 1
         else:
             return 1

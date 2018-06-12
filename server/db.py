@@ -29,10 +29,11 @@ def main():
     )'''
     c.execute(sql)
     db.commit()
-    sql2 = "insert into login values(null, '初始管理员', '123');"
-    c.execute(sql2)
-    db.commit()
+    # sql2 = "insert into login values(null, '初始管理员', '123');"
+    # c.execute(sql2)
+    # db.commit()
     db.close()
+    print("数据库创建成功")
 
 if __name__ == '__main__':
     main()

@@ -23,7 +23,7 @@ class Server:
     def serverForever(self):
         '''启动服务器'''
         #连接数据库
-        self.db = sqlite3.connect('customers.db')
+        self.db = sqlite3.connect('userinfo.db')
         #存放在线人员的列表
         self.online=[]
         #等待客户端连接
@@ -52,7 +52,7 @@ class Server:
                 server_login(self.connfd, self.db, data)
             elif data[0] == 'C':
                 print("聊天开始")
-                # do_cahrt(self.connfd,self.db, data)
+                # do_chart(self.connfd,self.db, data)
             elif data[0] == 'A':
                 print('管理员操作')
                 # do_admin(self.connfd, self.db, self.online"在线用户列表")

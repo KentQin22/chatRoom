@@ -19,7 +19,6 @@ def server_register(c,db,data):
     sql="select * from login where name='%s' "%name
     cursor.execute(sql)
     r=cursor.fetchone()
-    print(r)
     if r != None:
         c.send('EXISTS'.encode())
         return
